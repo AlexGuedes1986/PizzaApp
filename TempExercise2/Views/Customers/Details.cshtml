@@ -1,0 +1,45 @@
+﻿@model TempExercise2.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            <label>Order ID</label>
+        </dt>
+        <dd>
+            @foreach (var item in Model.Orders)
+            {
+                @Html.DisplayFor(modelItem => item.OrderID)
+                <br />
+            }
+        </dd>
+        
+    </dl>
+    <p>Total of orders: @ViewBag.TotalOfOrders</p>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LicenseNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
